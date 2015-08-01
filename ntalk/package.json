@@ -1,0 +1,14 @@
+{
+  "name": "ntalk",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-load": "*",
+    "express-session": "*",
+    "method-override": "*"
+  }
+}
