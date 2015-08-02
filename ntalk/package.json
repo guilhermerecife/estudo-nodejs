@@ -9,6 +9,7 @@
     "express": "*",
     "express-load": "*",
     "express-session": "*",
-    "method-override": "*"
+    "method-override": "*",
+    "socket.io": "^1.3.6"
   }
 }
