@@ -1,7 +1,7 @@
 <% include ../header %>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-	var socket = io('http://104.131.214.155a');
+	var socket = io('http://104.131.214.155');
 	socket.emit('join','<%- sala %>');
 	socket.on('send-client', function (msg) {
 		document.getElementById('chat').innerHTML += msg;
