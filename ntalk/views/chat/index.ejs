@@ -1,7 +1,7 @@
 <% include ../header %>
-<script src="http://104.131.214.155/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
-	var socket = io('http://104.131.214.155');
+	var socket = io('http://talkieparty.com');
 	socket.emit('join','<%- sala %>');
 	socket.on('send-client', function (msg) {
 		document.getElementById('chat').innerHTML += msg;
