@@ -6,7 +6,7 @@ module.exports = function(io) {
 	sockets.on('connection', function(client) {
 		var session = client.handshake.session;
 		var usuario = session.usuario;
-		console.log(usuario.email + " entrou no chat!");
+		console.log(usuario.email + " entrou em contatos!");
 		onlines[usuario.email] = usuario.email;
 		for (var email in onlines) {
 			client.emit('notify-onlines', email);
