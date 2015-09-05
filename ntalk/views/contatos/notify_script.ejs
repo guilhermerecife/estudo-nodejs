@@ -1,6 +1,6 @@
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://talkieparty.com/socket.io/socket.io.js"></script>
 <script>
-		var socket = io('talkieparty.com');
+		var socket = io('http://talkieparty.com');
 		var notify = function(data) {
 			var id = 'notify_' + data.email;
 			var notify = document.getElementById(id);
