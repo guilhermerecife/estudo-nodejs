@@ -6,12 +6,14 @@ module.exports = function(io) {
 	sockets.on('connection', function(client) {
 		var session = client.handshake.session;
 		var usuario = session.usuario;
+		console.log(usuario.email + " entrou no chat!");
 		onlines[usuario.email] = usuario.email;
 		for (var email in onlines) {
 			client.emit('notify-onlines', email);
 			client.broadcast.emit('notify-onlines', email);
 		}
 		client.on('send-server', function(msg) {
+			console.log(usuario.email + " enviou uma mensagem!");
 			var sala = session.sala,
 			data = {email: usuario.email, sala: sala};
 			msg = "<b>" + usuario.nome + ":</b> " + msg + "<br>";
@@ -28,6 +30,7 @@ module.exports = function(io) {
 		client.join(sala);
 		});
 		client.on('disconnect', function () {
+			console.log(usuario.email + " saiu do chat!");
 			var sala = session.sala
 			, msg = "<b>"+ usuario.nome +":</b> saiu.<br>";
 			client.broadcast.emit('notify-offlines', usuario.email);
