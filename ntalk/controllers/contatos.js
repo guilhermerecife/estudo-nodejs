@@ -1,17 +1,26 @@
 //Controller
 module.exports = function(app) {
+	var Usuario = app.models.usuario;
+
 	var ContatosController = {
 		index: function(req, res) {
-			var usuario = req.session.usuario,
-			contatos = usuario.contatos,
-			params = {usuario: usuario, contatos: contatos};
-			res.render('contatos/index', params);
+			var _id = req.session.usuario._id;
+			Usuario.findById(_id, function(erro, usuario) {
+				var contatos = usuario.contatos;
+				var resultado = {contatos: contatos};
+				res.render('contatos/index', resultado);
+			});
 		},
 		create: function(req, res) {
-			var contato = req.body.contato;
-			var usuario = req.session.usuario;
-			usuario.contatos.push(contato);
-			res.redirect('/contatos');
+			var _id = req.sessio.usuario._id;
+			Usuario.findById(_id, function(erro, usuario) {
+				var contato = req.body.contato;
+				var contatos = usuario.conatos;
+				contatos.push(contato);
+				usuario.save(function() {
+					res.redirect('/contatos');
+				});
+			});
 		},
 		show: function(req, res) {
 			var id = req.params.id,

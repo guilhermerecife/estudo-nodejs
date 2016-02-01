@@ -11,6 +11,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var cookie = cookieParser(SECRET);
 var store = new expressSession.MemoryStore();
+var mongoose = require('mongoose');
+global.db = mongoose.connect('mongodb://127.0.0.1:27001/ntalk');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -33,7 +35,7 @@ io.use(function(socket, next) {
 		var sessionID = data.signedCookies[KEY];
 		store.get(sessionID, function(err, session) {
 			if(err || !session) {
-				return next(new Error('Acesso negado'));
+				return next(new Error('Acesso negado!'));
 			}else {
 				socket.handshake.session = session;
 				return next();

@@ -10,6 +10,7 @@
     "express-load": "*",
     "express-session": "*",
     "method-override": "*",
+    "mongoose": "~4.3.7",
     "socket.io": "^1.3.6"
   }
 }
