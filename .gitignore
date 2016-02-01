@@ -1,5 +1,5 @@
-.gitignore
-.gitattributes
+*.gitignore
+*.gitattributes
 
 # Windows image file caches
 Thumbs.db
@@ -7,10 +7,6 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-
-.gitignore
-.gitattributes
-data/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
